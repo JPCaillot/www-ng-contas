@@ -2,12 +2,21 @@ nav {
     width: 100%;
     height: 3rem;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-around;
-    padding: 0.5rem;
+    padding: 2rem 0.5rem;
+    background-color: #ada8a836;
+    border-bottom: 0.1rem solid #ada8a88a;
+    box-shadow: 0 3px 10px #0000002c;
     div {
         a {
-            padding: 0 1rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: #000;
+            border-left: 0.1rem solid #ada8a88a;
+            &:hover {
+                background-color: #ada8a87e;
+            }
         }
     }
 }
