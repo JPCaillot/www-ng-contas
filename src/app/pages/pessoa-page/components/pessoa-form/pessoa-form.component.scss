@@ -1,0 +1,50 @@
+// TODO ajustar responsividade
+div {
+    padding-block: 0.3rem;
+}
+
+.person {
+    label {
+        min-width: 9rem;
+        margin-right: 1rem;
+    }
+    input {
+        &#name {
+            width: 30rem;
+        }
+        &#CPF {
+            width: 10rem;
+        }
+        &#birthDate {
+            width: 7rem;
+        }
+    }
+}
+
+.address {
+    border: 0.13rem solid #000000;
+    margin-block: 1rem;
+    padding: 1rem;
+    label {
+        min-width: 4rem;
+        margin-inline-end: 1rem;
+    }
+    input {
+        margin-right: 1rem;
+        &#postalCode {
+            width: 7rem;
+        }
+        &#street {
+            width: 30rem;
+        }
+        &#number {
+            width: 5rem;
+        }
+        &#city {
+            width: 20rem;
+        }
+        &#state {
+            width: 15rem;
+        }
+    }
+}
