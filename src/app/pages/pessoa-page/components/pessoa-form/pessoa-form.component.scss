@@ -28,6 +28,9 @@ div {
     label {
         min-width: 4rem;
         margin-inline-end: 1rem;
+        &:nth-child(3) {
+            text-align: right;
+        }
     }
     input {
         margin-right: 1rem;

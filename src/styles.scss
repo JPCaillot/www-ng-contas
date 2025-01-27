@@ -1,8 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+$header-border: 0.1rem solid #ada8a88a;
 * {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h1 {
     font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+button {
+    border: $header-border;
+    border-radius: 15px;
+    padding-block: 0.3rem;
+    padding-inline: 0.7rem;
+    background-color: rgb(37, 105, 231);
+    color: white;
+    font-weight: bold;
 }
