@@ -16,4 +16,9 @@ export class PessoaService {
     const url = `${this.apiUrl}/pessoa`;
     return this.http.post<Pessoa>(url, pessoa)
   }
+
+  getAllPessoas(): Observable<Pessoa[]> {
+    const url = `${this.apiUrl}/pessoa`;
+    return this.http.get<Pessoa[]>(url);
+  }
 }

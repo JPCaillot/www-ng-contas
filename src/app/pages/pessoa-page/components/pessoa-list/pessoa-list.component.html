@@ -1,1 +1,29 @@
-<p>pessoa-list works!</p>
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Pessoas Cadastradas</th>
+        </tr>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (pessoaRecord of pessoaRecords; track pessoaRecord.idPessoa) {
+        <tr>
+            <td>{{pessoaRecord.nome}}</td>
+            <td>{{pessoaRecord.cpf}}</td>
+            <td>
+                {{pessoaRecord.endereco.cidade}}
+                / {{pessoaRecord.endereco.estado}}
+            </td>
+            <td>
+                <button>Editar</button>
+                <button>Excluir</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
