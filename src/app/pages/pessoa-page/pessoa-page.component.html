@@ -1,4 +1,4 @@
 <main>
-    <app-pessoa-form />
-    <app-pessoa-list />
+    <app-pessoa-form [pessoaBeingEdited]="pessoaEdited" />
+    <app-pessoa-list (pessoaEdited)="onPessoaEdited($event)" />
 </main>

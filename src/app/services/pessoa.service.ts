@@ -21,4 +21,14 @@ export class PessoaService {
     const url = `${this.apiUrl}/pessoa`;
     return this.http.get<Pessoa[]>(url);
   }
+
+  editPessoa(pessoa: Pessoa): Observable<Pessoa> {
+    const url = `${this.apiUrl}/pessoa`;
+    return this.http.patch<Pessoa>(url, pessoa);
+  }
+
+  deletePessoa(idPessoa: number): Observable<void> {
+    const url = `${this.apiUrl}/pessoa/${idPessoa}`;
+    return this.http.delete<void>(url);
+  }
 }

@@ -14,14 +14,14 @@
         @for (pessoaRecord of pessoaRecords; track pessoaRecord.idPessoa) {
         <tr>
             <td>{{pessoaRecord.nome}}</td>
-            <td>{{pessoaRecord.cpf}}</td>
+            <td class="text-center">{{pessoaRecord.cpf}}</td>
             <td>
                 {{pessoaRecord.endereco.cidade}}
                 / {{pessoaRecord.endereco.estado}}
             </td>
-            <td>
-                <button>Editar</button>
-                <button>Excluir</button>
+            <td class="text-center">
+                <button (click)="editPessoa(pessoaRecord)">Editar</button>
+                <button (click)="removePessoa(pessoaRecord)">Excluir</button>
             </td>
         </tr>
         }
