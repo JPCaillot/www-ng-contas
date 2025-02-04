@@ -1,12 +1,13 @@
 import {Component, effect, inject, input, InputSignal} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PessoaService} from '../../../../services/pessoa.service';
 import {Pessoa} from '../../../../models/pessoa';
 import {addIdToPessoa, mapFormToPessoa, mapPessoaToForm} from '../../../../mappers/pessoa-mapper';
+import {NgxMaskDirective} from 'ngx-mask';
 
 @Component({
   selector: 'app-pessoa-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './pessoa-form.component.html',
   styleUrl: './pessoa-form.component.scss'
 })
@@ -16,16 +17,16 @@ export class PessoaFormComponent {
   private formBuilder = inject(FormBuilder);
   form = this.formBuilder.group({
     pessoaInfo: this.formBuilder.group({
-      name: [''],
-      cpf: [''],
-      birthDate: [''],
+      name: ['', Validators.required],
+      cpf: ['', Validators.required],
+      birthDate: ['', Validators.required],
     }),
     addressInfo: this.formBuilder.group({
-      postalCode: [''],
-      street: [''],
+      postalCode: ['', Validators.required],
+      street: ['', Validators.required],
       number: [''],
-      city: [''],
-      state: ['']
+      city: ['', Validators.required],
+      state: ['', Validators.required]
     })
   });
 
@@ -48,6 +49,14 @@ export class PessoaFormComponent {
 
   onSubmit() {
     console.warn(this.form.value);
+    if (!this.form.valid) {
+      console.error("Form is not valid");
+    } else {
+      this.submitForm();
+    }
+  }
+
+  private submitForm() {
     const pessoa = mapFormToPessoa(this.form);
     if (this.idPessoa) {
       this.editPessoa(pessoa);

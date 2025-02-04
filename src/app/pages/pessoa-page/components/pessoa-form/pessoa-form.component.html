@@ -8,18 +8,33 @@
         </div>
         <div>
             <label for="CPF">CPF</label>
-            <input id="CPF" type="text" formControlName="cpf">
+            <input
+              id="CPF"
+              type="text"
+              formControlName="cpf"
+              mask="000.000.000-00"
+            >
         </div>
         <div>
             <label for="birthDate">Data de Nascimento</label>
-            <input id="birthDate" type="text" formControlName="birthDate">
+            <input
+              id="birthDate"
+              type="text"
+              formControlName="birthDate"
+              mask="d0/M0/0000"
+            >
         </div>
     </section>
     <section formGroupName="addressInfo" class="address">
         <h3>Endereço</h3>
         <div>
             <label for="postalCode">CEP</label>
-            <input id="postalCode" type="text" formControlName="postalCode">
+            <input
+              id="postalCode"
+              type="text"
+              formControlName="postalCode"
+              mask="00000-000"
+            >
         </div>
         <div>
             <label for="street">Rua</label>
