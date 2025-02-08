@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PessoaPageComponent } from './pessoa-page.component';
+import {PessoaPageComponent} from './pessoa-page.component';
+import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
 
 describe('PessoaPageComponent', () => {
   let component: PessoaPageComponent;
@@ -8,7 +10,11 @@ describe('PessoaPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PessoaPageComponent]
+      imports: [PessoaPageComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     })
     .compileComponents();
 

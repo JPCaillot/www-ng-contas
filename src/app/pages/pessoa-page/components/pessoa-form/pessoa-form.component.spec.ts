@@ -1,6 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PessoaFormComponent } from './pessoa-form.component';
+import {PessoaFormComponent} from './pessoa-form.component';
+import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
+import {PessoaService} from '../../../../services/pessoa.service';
+import {provideNgxMask} from 'ngx-mask';
 
 describe('PessoaFormComponent', () => {
   let component: PessoaFormComponent;
@@ -8,9 +12,15 @@ describe('PessoaFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PessoaFormComponent]
+      imports: [PessoaFormComponent],
+      providers: [
+        PessoaService,
+        provideNgxMask(),
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PessoaFormComponent);
     component = fixture.componentInstance;
