@@ -49,5 +49,8 @@
             <input id="state" type="text" formControlName="state">
         </div>
     </section>
-    <button type="submit">Salvar</button>
+    <section>
+      <button type="submit">Salvar</button>
+      <button type="button" (click)="clearFormData()">{{ this.clearLabel }}</button>
+    </section>
 </form>

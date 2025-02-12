@@ -44,3 +44,20 @@ export const mapPessoaToForm = (pessoa: Pessoa): PessoaFormValue => {
     }
   }
 }
+
+export const clearForm = (): PessoaFormValue => {
+  return {
+    pessoaInfo: {
+      name: "",
+      cpf: "",
+      birthDate: "",
+    },
+    addressInfo: {
+      postalCode: "",
+      street: "",
+      number: "",
+      city: "",
+      state: ""
+    }
+  }
+}

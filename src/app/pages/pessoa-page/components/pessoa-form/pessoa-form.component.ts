@@ -2,7 +2,7 @@ import {Component, effect, inject, input, InputSignal} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PessoaService} from '../../../../services/pessoa.service';
 import {Pessoa} from '../../../../models/pessoa';
-import {addIdToPessoa, mapFormToPessoa, mapPessoaToForm} from '../../../../mappers/pessoa-mapper';
+import {addIdToPessoa, clearForm, mapFormToPessoa, mapPessoaToForm} from '../../../../mappers/pessoa-mapper';
 import {NgxMaskDirective} from 'ngx-mask';
 
 @Component({
@@ -29,6 +29,7 @@ export class PessoaFormComponent {
       state: ['', Validators.required]
     })
   });
+  clearLabel: string = "Limpar";
 
   constructor(private service: PessoaService) {
     effect(() => {
@@ -41,6 +42,7 @@ export class PessoaFormComponent {
 
   setFormToEditMode = (editingPessoa: Pessoa): void => {
     this.idPessoa = editingPessoa.idPessoa;
+    this.clearLabel = "Cancelar";
 
     const formData = mapPessoaToForm(editingPessoa);
     console.log("Form data: ", formData);
@@ -71,7 +73,7 @@ export class PessoaFormComponent {
       next: (response) => {
         console.log('Pessoa edited successfully: ', response);
         // pessoa mostrada muda
-        this.idPessoa = undefined;
+        this.clearFormData();
       },
       error: (error) => console.error('Error editing Pessoa: ', error)
     });
@@ -82,9 +84,17 @@ export class PessoaFormComponent {
     this.service.savePessoa(pessoa).subscribe({
       next: (response) => {
         console.log('Pessoa saved successfully: ', response);
+        this.clearFormData();
         // carrega a lista novamente
       },
       error: (error) => console.error('Error saving Pessoa: ', error)
     });
+  }
+
+  clearFormData() {
+    this.idPessoa = undefined;
+    this.clearLabel = "Limpar";
+    const formData = clearForm();
+    this.form.patchValue(formData);
   }
 }
